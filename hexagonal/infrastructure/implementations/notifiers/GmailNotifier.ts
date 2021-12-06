@@ -4,10 +4,10 @@ import { Notifier } from "../../../domain/repositories/Notifier";
 export abstract class GmailNotifier implements Notifier {
   protected _transporter: nodemailer.Transporter
   private _credentials: { email: string, pass: string } = {
-    email: 'jsebas2426@gmail.com',
-    pass: 'swleyqjrzkwwlmoi'
+    email: process.env.GMAIL_EMAIL,
+    pass: process.env.GMAIL_PASS
   }
-  protected _from: string = 'jsebas2426@gmail.com'
+  protected _from: string = process.env.GMAIL_EMAIL
   protected _to: string = ''
 
   constructor(to: string) {
